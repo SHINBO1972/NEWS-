@@ -189,8 +189,8 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 
 /* 1. 박스 기본 스타일 (문법 오류 수정) */
 .info-box {
-    background-color: #f8f9fa;
-    padding: 25px; /* 상하좌우 여백을 동일하게 주면 더 깔끔합니다. */
+    background-color: #e5e5e5;
+    padding: 15px; /* 상하좌우 여백을 동일하게 주면 더 깔끔합니다. */
     border-left: 4px solid #F47A1F;
     margin: 15px 0;
     border-radius: 4px;
@@ -323,4 +323,30 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     padding: 20px; /* 각종 박스 안쪽 여백 조정 */
     margin: 30px 0;
 }
+}
+
+/* style.css 파일에 아래 코드를 추가하세요. */
+
+/* --- 본문 콘텐츠 이미지 반응형 스타일 --- */
+
+/* 본문 안의 모든 이미지에 적용 (가장 중요) */
+.article-content img {
+    max-width: 100%; /* 이미지가 부모 요소(글 영역)의 너비를 절대 넘어가지 않도록 함 */
+    height: auto;    /* 이미지의 가로세로 비율을 유지 */
+    display: block;  /* 이미지 아래에 생길 수 있는 불필요한 여백 제거 */
+}
+
+/* 개별 이미지 스타일 (이미 사용 중인 클래스 보강) */
+.article-image {
+    margin: 40px auto; /* 이미지 위아래에 40px 여백, 좌우는 자동으로 맞춰 가운데 정렬 */
+    border-radius: 8px; /* 사이트의 다른 요소들과 통일감 있는 모서리 둥글게 처리 */
+}
+
+/* 이미지 그리드 스타일 (이미 있는 스타일 보강) */
+.image-grid {
+    margin: 40px 0; /* 그리드 위아래 여백 */
+}
+.image-grid img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 다른 카드처럼 은은한 그림자 효과 */
 }
