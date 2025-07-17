@@ -193,17 +193,10 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     margin: 30px 0;
     border-radius: 4px;
 }
-
-.info-box + p {
-    margin-top: -10px; /* 박스 아래 여백(30px)을 일부 줄여 간격을 20px로 맞춤 */
-    font-weight: bold;
-    border-bottom: 2px solid #F47A1F;
-    padding-bottom: 8px;
-    line-height: 1.5;
+.info-box ul {
+    padding-left: 20px; /* 기본값(40px)보다 작은 값으로 조절. 0으로 하면 완전히 붙습니다. */
 }
 
-
-/* --- 반응형 디자인 --- */
 /* --- 반응형 디자인 --- */
 
 .hamburger-menu {
