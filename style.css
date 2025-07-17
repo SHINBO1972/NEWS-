@@ -185,19 +185,26 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 }
 
 /* ▼▼▼ 새로 추가된 자동화 스타일 ▼▼▼ */
-/* --- 정보 박스 및 자동 스타일링 --- */
+/* --- 정보 박스 및 자동 스타일링 (수정 완료) --- */
+
+/* 1. 박스 기본 스타일 (문법 오류 수정) */
 .info-box {
     background-color: #f8f9fa;
-    padding: 15px 25px;
+    padding: 25px; /* 상하좌우 여백을 동일하게 주면 더 깔끔합니다. */
     border-left: 4px solid #F47A1F;
     margin: 30px 0;
     border-radius: 4px;
-    .info-box :last-child {
-    margin-bottom: 0;
 }
-}
+
+/* 2. 박스 안의 목록(ul) 스타일 */
 .info-box ul {
-    padding-left: 20px; /* 기본값(40px)보다 작은 값으로 조절. 0으로 하면 완전히 붙습니다. */
+    margin-top: 15px;    /* 목록 위의 제목과의 간격 */
+    padding-left: 22px;  /* 목록 들여쓰기 (원하는 값으로 조절) */
+}
+
+/* 3. 박스 안의 '마지막 자식' 아래 여백 제거 (가장 중요) */
+.info-box > :last-child {
+    margin-bottom: 0;
 }
 
 /* --- 반응형 디자인 --- */
