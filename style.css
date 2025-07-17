@@ -193,11 +193,11 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 
 /* 1. 박스 기본 스타일 (문법 오류 수정) */
 .info-box {
-    background-color: #e5e5e5;
+    background-color: #e8e8e8;
     padding: 15px; /* 상하좌우 여백을 동일하게 주면 더 깔끔합니다. */
-    border-left: 4px solid #F47A1F;
     margin: 15px 0;
     border-radius: 4px;
+    font-size: 0.85em;
 }
 
 /* 2. 박스 안의 목록(ul) 스타일 */
