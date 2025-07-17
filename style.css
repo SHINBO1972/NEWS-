@@ -207,94 +207,86 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 /* --- 반응형 디자인 --- */
 
 .hamburger-menu {
-    display: none;
+    display: none; /* 데스크탑에서는 숨김 */
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001;
+    z-index: 1001; /* 메뉴보다 위에 있도록 */
 }
+
 .hamburger-menu span {
     display: block;
     width: 25px;
     height: 3px;
     background-color: #333;
     margin: 5px 0;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
+/* 768px 이하 화면(모바일)에 적용될 스타일 */
 @media (max-width: 768px) {
+    body {
+        /* body에 직접 주었던 padding-top을 모바일에서는 제거합니다. */
+        /* 헤더가 다른 콘텐츠를 가리는 문제는 아래 nav 위치 조정으로 해결합니다. */
+        padding-top: 70px; /* 헤더 높이만큼 확보하는 것은 유지 */
+    }
+
     .container { 
         padding: 0 15px; 
     }
 
+    /* --- 모바일 헤더 & 햄버거 메뉴 --- */
     header nav {
-        display: none;
-        position: fixed;
-        top: 70px;
+        display: none; /* 평소에는 메뉴를 숨깁니다 */
+        position: fixed; /* 화면에 고정 */
+        top: 70px; /* 상단 헤더 높이 바로 아래부터 시작 */
         left: 0;
         width: 100%;
         height: calc(100% - 70px);
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.98); /* 살짝 비치는 흰색 배경 */
+        backdrop-filter: blur(4px); /* 뒷배경 블러 처리 */
     }
+
     header nav.is-active {
-        display: block;
-    }
-    header nav ul {
-        flex-direction: column;
+        display: flex; /* 햄버거 클릭 시 flex로 보이게 설정 */
         align-items: center;
-        padding-top: 40px;
-        margin-left: 0;
+        justify-content: center;
+    }
+
+    header nav ul {
+        flex-direction: column; /* 메뉴 아이템 세로 정렬 */
+        align-items: center;
+        padding: 0;
+        margin: 0;
     }
     header nav ul li {
-        margin: 20px 0;
+        margin: 25px 0; /* 메뉴 간격 조정 */
     }
     header nav ul li a {
-        font-size: 1.5em;
-    }
-    .hamburger-menu {
-        display: block;
+        font-size: 1.6em; /* 메뉴 텍스트 크기 키우기 */
+        font-weight: bold;
     }
 
+    .hamburger-menu {
+        display: block; /* 모바일에서 햄버거 버튼을 보이게 함 */
+    }
+
+    /* --- 모바일 메인 비주얼 & 슬로건 --- */
     #main-visual {
         height: 60vh;
-        background-size: cover;
+        background-size: cover; /* 이미지가 영역을 꽉 채우도록 설정 (여백 제거) */
     }
+    
     #main-visual .slogan {
-        font-size: 1.6em;
+        font-size: 1.6em; /* 슬로건 글씨 크기를 데스크탑의 1/2로 줄임 */
     }
 
+    /* --- 나머지 모바일 스타일 --- */
+    .section h2 { font-size: 2em; margin-bottom: 40px; }
     .card { width: 100%; }
+    .image-grid { grid-template-columns: 1fr; }
     .article-main { padding-top: 100px; }
     .article-container { padding: 30px 20px; margin: 30px 10px; }
     .article-title-box h1 { font-size: 2em; }
-    .image-grid { grid-template-columns: 1fr; }
-}
-
-    /* ▼▼▼ 여기부터 추가하시면 됩니다 ▼▼▼ */
-    header nav ul li {
-        margin-left: 20px;
-    }
-
-    header nav ul li a {
-        white-space: nowrap;
-        font-size: 15px;
-    }
-}
-
-/* --- 이미지 그리드 스타일 --- */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* PC에서는 2개의 열을 만듭니다 */
-    gap: 20px; /* 이미지 사이의 간격을 20px로 설정합니다 */
-    margin: 40px 0; /* 그리드 위아래로 40px의 여백을 줍니다 */
-}
-
-.image-grid img {
-    width: 100%; /* 이미지가 그리드 칸에 꽉 차도록 합니다 */
-    height: auto; /* 이미지의 원래 비율을 유지합니다 */
-    display: block; /* 이미지 아래 불필요한 여백을 제거합니다 */
-    border-radius: 8px; /* 사이트의 다른 카드들과 통일감을 줍니다 */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 은은한 그림자 효과 */
 }
