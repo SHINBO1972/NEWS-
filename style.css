@@ -204,34 +204,73 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 
 
 /* --- 반응형 디자인 --- */
-@media (max-width: 992px) {
-    .card {
-        width: calc(50% - 15px);
-    }
+/* --- 반응형 디자인 --- */
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s;
 }
 
 @media (max-width: 768px) {
     .container { 
         padding: 0 15px; 
     }
-    
-    #main-visual {
-        height: 50vh;
-        background-size: contain;
+
+    header nav {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 70px);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
+    }
+    header nav.is-active {
+        display: block;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        margin-left: 0;
+    }
+    header nav ul li {
+        margin: 20px 0;
+    }
+    header nav ul li a {
+        font-size: 1.5em;
+    }
+    .hamburger-menu {
+        display: block;
     }
 
-    #main-visual .slogan { font-size: 2.5em; }
+    #main-visual {
+        height: 60vh;
+        background-size: cover;
+    }
+    #main-visual .slogan {
+        font-size: 1.6em;
+    }
 
     .card { width: 100%; }
-
     .article-main { padding-top: 100px; }
     .article-container { padding: 30px 20px; margin: 30px 10px; }
     .article-title-box h1 { font-size: 2em; }
-    .article-title-box h2 { font-size: 1.1em; }
-    .article-content h3 { font-size: 1.3em; }
-     .image-grid {
-        grid-template-columns: 1fr;
-    }
+    .image-grid { grid-template-columns: 1fr; }
+}
 
     /* ▼▼▼ 여기부터 추가하시면 됩니다 ▼▼▼ */
     header nav ul li {
