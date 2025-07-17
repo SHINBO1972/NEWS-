@@ -7,6 +7,7 @@ body {
     color: #333;
     line-height: 1.6;
     background-color: #f8f9fa; /* 상세 페이지 배경색과 통일 */
+    padding-top: 70px; /* 헤더 공간 확보 */
 }
 
 .container {
@@ -44,7 +45,6 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 
 /* --- 메인 페이지 스타일 (index.html) --- */
 #main-visual {
-    padding-top: 20px;
     height: 85vh;
     background: url('main-visual.jpg') no-repeat center center/cover;
     display: flex;
@@ -211,18 +211,28 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 }
 
 @media (max-width: 768px) {
-    .card { width: 100%; }
+    .container { 
+        padding: 0 15px; 
+    }
+    
+    #main-visual {
+        height: 50vh;
+        background-size: contain;
+    }
+
     #main-visual .slogan { font-size: 2.5em; }
+
+    .card { width: 100%; }
+
     .article-main { padding-top: 100px; }
     .article-container { padding: 30px 20px; margin: 30px 10px; }
     .article-title-box h1 { font-size: 2em; }
     .article-title-box h2 { font-size: 1.1em; }
     .article-content h3 { font-size: 1.3em; }
-    .container { padding: 0 15px; }
      .image-grid {
         grid-template-columns: 1fr; /* 모바일에서는 1개의 열만 사용합니다 */
     }
-}
+}```
 
 /* --- 이미지 그리드 스타일 --- */
 .image-grid {
