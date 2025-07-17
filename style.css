@@ -192,6 +192,9 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     border-left: 4px solid #F47A1F;
     margin: 30px 0;
     border-radius: 4px;
+    .info-box :last-child {
+    margin-bottom: 0;
+}
 }
 .info-box ul {
     padding-left: 20px; /* 기본값(40px)보다 작은 값으로 조절. 0으로 하면 완전히 붙습니다. */
