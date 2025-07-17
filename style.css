@@ -197,7 +197,7 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     padding: 15px; /* 상하좌우 여백을 동일하게 주면 더 깔끔합니다. */
     margin: 15px 0;
     border-radius: 4px;
-    font-size: 0.85em;
+    font-size: 0.9em;
 }
 
 /* 2. 박스 안의 목록(ul) 스타일 */
