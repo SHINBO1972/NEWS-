@@ -15,7 +15,11 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+/* style.css 파일에 이 코드를 추가하세요 */
 
+.text-orange {
+    color: #F47A1F; /* 신보그룹의 메인 주황색 */
+}
 /* --- 모든 페이지 공통 헤더/푸터 --- */
 header {
     background-color: #fff;
