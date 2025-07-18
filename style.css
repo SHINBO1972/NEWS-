@@ -189,11 +189,11 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 }
 
 /* ▼▼▼ 새로 추가된 자동화 스타일 ▼▼▼ */
-/* --- 정보 박스 및 자동 스타일링 (수정 완료) --- */
+/* --- 정보 박스 및 목록 스타일 통일 (수정 완료) --- */
 
 /* 1. 회색 정보 박스 */
 .info-box {
-    background-color: #f1f3f5; /* 약간 더 부드러운 회색으로 변경 */
+    background-color: #f1f3f5;
     padding: 20px;
     margin: 20px 0;
     border-radius: 5px;
@@ -201,13 +201,14 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 
 /* 2. 주황색 막대 가이드라인 박스 */
 .guideline-box {
-    background-color: #fff; /* 흰색 배경으로 차별화 */
-    border-left: 4px solid #F47A1F; /* 주황색 막대 */
+    background-color: #fff;
+    border-left: 4px solid #F47A1F;
     padding: 20px;
     margin: 20px 0;
 }
 
-/* 3. 박스 안의 제목(h4) 공통 스타일 */
+/* 3. 박스 안의 제목(h4) 공통 스타일 (info-box에도 적용되도록 수정) */
+.info-box h4,
 .guideline-box h4 {
     margin-top: 0;
     margin-bottom: 15px;
