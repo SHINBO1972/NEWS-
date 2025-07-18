@@ -191,23 +191,52 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 /* ▼▼▼ 새로 추가된 자동화 스타일 ▼▼▼ */
 /* --- 정보 박스 및 자동 스타일링 (수정 완료) --- */
 
-/* 1. 박스 기본 스타일 (문법 오류 수정) */
+/* 1. 회색 정보 박스 */
 .info-box {
-    background-color: #e8e8e8;
-    padding: 15px; /* 상하좌우 여백을 동일하게 주면 더 깔끔합니다. */
-    margin: 15px 0;
-    border-radius: 4px;
-    font-size: 0.9em;
+    background-color: #f1f3f5; /* 약간 더 부드러운 회색으로 변경 */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
 }
 
-/* 2. 박스 안의 목록(ul) 스타일 */
-.info-box ul {
-    margin-top: 15px;    /* 목록 위의 제목과의 간격 */
-    padding-left: 22px;  /* 목록 들여쓰기 (원하는 값으로 조절) */
+/* 2. 주황색 막대 가이드라인 박스 */
+.guideline-box {
+    background-color: #fff; /* 흰색 배경으로 차별화 */
+    border-left: 4px solid #F47A1F; /* 주황색 막대 */
+    padding: 20px;
+    margin: 20px 0;
 }
 
-/* 3. 박스 안의 '마지막 자식' 아래 여백 제거 (가장 중요) */
-.info-box > :last-child {
+/* 3. 박스 안의 제목(h4) 공통 스타일 */
+.guideline-box h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* 4. 두 박스 안의 목록(ul, li) 스타일 통일 (가장 중요) */
+.info-box ul,
+.guideline-box ul {
+    padding-left: 20px; /* 목록 들여쓰기 통일 */
+    margin: 15px 0 0 0; /* 목록 위 여백, 나머지 여백 초기화 */
+}
+
+.info-box li,
+.guideline-box li {
+    margin-bottom: 10px; /* 목록 항목(li) 사이의 간격 */
+    padding-left: 5px;   /* 불릿(점)과 텍스트 사이 간격 */
+}
+
+/* 목록의 마지막 항목에는 아래쪽 여백 제거 (박스 하단 불필요한 공간 방지) */
+.info-box li:last-child,
+.guideline-box li:last-child {
+    margin-bottom: 0;
+}
+
+/* 5. 박스의 마지막 요소 여백 제거 (전체적인 완성도) */
+.info-box > :last-child,
+.guideline-box > :last-child {
     margin-bottom: 0;
 }
 
