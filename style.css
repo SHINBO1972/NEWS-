@@ -362,3 +362,38 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* --- [디자인 B] 필자의 글: 웹폰트(명조체) 적용 --- */
+.intro-serif-font {
+    font-family: 'Noto Serif KR', serif; /* 웹폰트 적용 */
+    border-top: 2px solid #343a40;
+    border-bottom: 1px solid #dee2e6;
+    padding: 40px 0;
+    margin: 0 0 50px 0;
+    text-align: left;
+}
+
+.intro-serif-font p {
+    font-size: 1.15em;
+    line-height: 2.0; /* 명조체는 줄간격이 넓어야 보기 좋습니다 */
+    color: #343a40;
+    font-weight: 400; /* 일반 굵기 */
+    margin: 0;
+    padding: 0;
+}
+
+.intro-serif-font p.concluding-paragraph {
+    margin-top: 25px;
+    font-weight: 600; /* 조금 더 굵게 */
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .intro-serif-font {
+        padding: 30px 0;
+        margin-bottom: 40px;
+    }
+    .intro-serif-font p {
+        font-size: 1.1em;
+    }
+}
