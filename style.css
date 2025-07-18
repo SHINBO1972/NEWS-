@@ -6,8 +6,8 @@ body {
     box-sizing: border-box;
     color: #333;
     line-height: 1.6;
-    background-color: #f8f9fa; /* 상세 페이지 배경색과 통일 */
-    padding-top: 70px; /* 헤더 공간 확보 */
+    background-color: #f8f9fa;
+    padding-top: 70px;
 }
 
 .container {
@@ -53,7 +53,7 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     justify-content: center;
     align-items: center;
     flex-direction: column; 
-    gap: 8px; /* 행간 조절 */
+    gap: 8px;
     color: #fff;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -63,18 +63,19 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     font-size: 3.2em; 
     font-weight: bold; 
 }
-
-/* ▼▼▼ 이 부분이 수정/추가되었습니다. ▼▼▼ */
 #main-visual p {
-    margin: 0; /* 기존 p 태그의 마진 초기화는 유지 */
+    margin: 0;
 }
 
+/* ▼▼▼ 이 부분이 수정되었습니다. ▼▼▼ */
 #main-visual .large-subtext {
-    font-size: 2em; /* 기본 p 텍스트의 약 2배 크기 */
-    font-weight: 400; /* 너무 두껍지 않게 설정 */
-    margin-top: 10px; /* 위 슬로건과의 간격 추가 */
+    font-size: 1.3em;  /* 너무 크지 않게 적당히 키움 */
+    line-height: 1.3;  /* 행간이 과도하게 늘어나지 않도록 조절 */
+    font-weight: 400;
+    margin-top: 10px;
 }
-/* ▲▲▲ 여기까지 수정/추가되었습니다. ▲▲▲ */
+/* ▲▲▲ 여기까지 수정되었습니다. ▲▲▲ */
+
 
 .section { padding: 80px 0; text-align: center; background-color: #fff; border-bottom: 1px solid #eee; }
 .section:last-of-type { border-bottom: none; }
@@ -90,7 +91,7 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     text-align: left;
     display: flex;
     flex-direction: column;
-    width: calc(50% - 15px); /* 정확한 너비 계산 */
+    width: calc(50% - 15px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
@@ -103,96 +104,29 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .card .card-content a { color: #F47A1F; font-weight: bold; margin-top: auto; }
 
 
-/* --- 상세 페이지 스타일 (article1.html, article2.html 등) --- */
-.article-main {
-    padding-top: 120px;
-    padding-bottom: 60px;
-}
-.article-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 50px 60px;
-    background-color: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-.article-title-box {
-    text-align: center;
-    border-bottom: 1px solid #dee2e6;
-    margin-bottom: 50px;
-    padding-bottom: 30px;
-}
-.article-title-box h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #333;
-    margin: 0 0 10px 0;
-    line-height: 1.3;
-}
-.article-title-box h2 {
-    font-size: 1.3em;
-    color: #6c757d;
-    font-weight: 400;
-    margin: 0;
-}
-.article-content {
-    font-size: 1.1em;
-    line-height: 1.9;
-    color: #212529;
-}
-.article-content h3 {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #333;
-    margin: 50px 0 20px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-.article-content p {
-    margin: 0 0 25px 0;
-}
-.article-content strong {
-    color: #000;
-    font-weight: 600;
-}
-.back-to-list-button {
-    display: inline-block;
-    text-align: center;
-    background-color: #F47A1F;
-    color: white !important;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-.back-to-list-button:hover {
-    background-color: #e06a1a;
-}
-.article-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-.article-image {
-    margin: 40px auto;
-    border-radius: 8px;
-}
-.image-grid {
-    margin: 40px 0;
-}
-.image-grid img {
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
+/* --- 상세 페이지 스타일 --- */
+.article-main { padding-top: 120px; padding-bottom: 60px; }
+.article-container { max-width: 800px; margin: 0 auto; padding: 50px 60px; background-color: #fff; border: 1px solid #e9ecef; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.article-title-box { text-align: center; border-bottom: 1px solid #dee2e6; margin-bottom: 50px; padding-bottom: 30px; }
+.article-title-box h1 { font-size: 2.5em; font-weight: 700; color: #333; margin: 0 0 10px 0; line-height: 1.3; }
+.article-title-box h2 { font-size: 1.3em; color: #6c757d; font-weight: 400; margin: 0; }
+.article-content { font-size: 1.1em; line-height: 1.9; color: #212529; }
+.article-content h3 { font-size: 1.5em; font-weight: 700; color: #333; margin: 50px 0 20px 0; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+.article-content p { margin: 0 0 25px 0; }
+.article-content strong { color: #000; font-weight: 600; }
+.back-to-list-button { display: inline-block; text-align: center; background-color: #F47A1F; color: white !important; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s; }
+.back-to-list-button:hover { background-color: #e06a1a; }
+.article-content img { max-width: 100%; height: auto; display: block; }
+.article-image { margin: 40px auto; border-radius: 8px; }
+.image-grid { margin: 40px 0; }
+.image-grid img { border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 
 /* --- 강조 박스 스타일 --- */
 .highlight-box { background-color: #fdf2e2; border: 1px solid #fbe8d1; border-radius: 12px; padding: 20px 30px; margin: 40px 0; }
 .highlight-box p { margin: 10px 0; font-size: 1.1em; color: #333; }
 .highlight-text { font-weight: bold; color: #333; border-bottom: 2px solid #F47A1F; padding-bottom: 2px; }
 
-/* --- 정보 박스 및 목록 스타일 통일 --- */
+/* --- 정보 박스 및 목록 스타일 --- */
 .info-box { background-color: #f1f3f5; padding: 20px; margin: 20px 0; border-radius: 5px; }
 .guideline-box { background-color: #fff; border-left: 4px solid #F47A1F; padding: 20px; margin: 20px 0; }
 .info-box h4, .guideline-box h4 { margin-top: 0; margin-bottom: 15px; font-size: 1.2em; color: #333; }
@@ -207,65 +141,27 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 
 /* 768px 이하 화면(모바일)에 적용될 스타일 */
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
+    body { padding-top: 70px; }
+    .container { padding: 0 15px; }
+    header nav { display: none; position: fixed; top: 70px; left: 0; width: 100%; height: calc(100% - 70px); background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(4px); }
+    header nav.is-active { display: flex; align-items: center; justify-content: center; }
+    header nav ul { flex-direction: column; align-items: center; padding: 0; margin: 0; }
+    header nav ul li { margin: 25px 0; }
+    header nav ul li a { font-size: 1.6em; font-weight: bold; }
+    .hamburger-menu { display: block; }
+    #main-visual { height: 60vh; background-size: cover; }
+    #main-visual .slogan { font-size: 1.6em; }
 
-    .container { 
-        padding: 0 15px; 
-    }
-
-    header nav {
-        display: none;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        height: calc(100% - 70px);
-        background-color: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(4px);
-    }
-    header nav.is-active {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
-    header nav ul li {
-        margin: 25px 0;
-    }
-    header nav ul li a {
-        font-size: 1.6em;
-        font-weight: bold;
-    }
-    .hamburger-menu {
-        display: block;
-    }
-
-    #main-visual {
-        height: 60vh;
-        background-size: cover;
-    }
-    
-    #main-visual .slogan {
-        font-size: 1.6em;
-    }
-
-    /* ▼▼▼ 모바일용 텍스트 크기 추가 ▼▼▼ */
+    /* ▼▼▼ 모바일용 스타일도 수정되었습니다. ▼▼▼ */
     #main-visual .large-subtext {
-        font-size: 1.1em; /* 모바일에서는 데스크탑보다 작은 크기로 조정 */
-        padding: 0 10px; /* 화면 양 옆에 약간의 여백 추가 */
+        font-size: 1.1em; /* 모바일에서는 더 작은 크기로 보이도록 설정 */
+        padding: 0 10px;
     }
+    /* ▲▲▲ 여기까지 수정되었습니다. ▲▲▲ */
 
     .section h2 { font-size: 2em; margin-bottom: 40px; }
     .card { width: 100%; }
     .image-grid { grid-template-columns: 1fr; }
-    
     .article-main { padding-top: 30px; padding-bottom: 30px; }
     .article-container { padding: 25px 20px; margin: 0; }
     .article-title-box h1 { font-size: 1.8em; }
