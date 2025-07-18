@@ -394,6 +394,47 @@ footer p { margin: 5px 0; font-size: 0.9em; }
         margin-bottom: 40px;
     }
     .intro-serif-font p {
-        font-size: 1.1em;
+        font-size: 1em;
+    }
+}
+
+
+/* --- [최종 디자인] 필자의 글 도입부 스타일 --- */
+
+/* 1. 웹폰트(명조체) 적용 스타일 */
+.intro-serif-font {
+    font-family: 'Noto Serif KR', serif; /* 웹폰트 적용 */
+    border-top: 2px solid #343a40;
+    padding: 40px 0 30px 0; /* 위쪽과 아래쪽 여백 */
+    margin: 0 0 25px 0; /* info-box와의 간격 */
+    text-align: left;
+}
+
+.intro-serif-font p {
+    font-size: 1em;
+    line-height: 2.0;
+    color: #343a40;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. info-box 안의 p태그 스타일 보강 (이미 있는 스타일과 충돌 방지) */
+.info-box p {
+    margin-bottom: 0; /* info-box 안에 p가 하나만 있을 때 불필요한 하단 여백 제거 */
+}
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* --- 모바일 반응형 스타일 --- */
+@media (max-width: 768px) {
+    .intro-serif-font {
+        padding: 30px 0 20px 0;
+        margin-bottom: 20px;
+    }
+    .intro-serif-font p {
+        font-size: 1em;
     }
 }
