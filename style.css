@@ -66,23 +66,26 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 #main-visual p {
     margin: 0;
 }
-
-/* ▼▼▼ 이 부분이 수정되었습니다. ▼▼▼ */
 #main-visual .large-subtext {
-    font-size: 1.3em;  /* 너무 크지 않게 적당히 키움 */
-    line-height: 1.3;  /* 행간이 과도하게 늘어나지 않도록 조절 */
+    font-size: 1.4em;
+    line-height: 1.4;
     font-weight: 400;
     margin-top: 10px;
 }
-/* ▲▲▲ 여기까지 수정되었습니다. ▲▲▲ */
 
-
-.section { padding: 80px 0; text-align: center; background-color: #fff; border-bottom: 1px solid #eee; }
+.section { padding: 80px 0; background-color: #fff; border-bottom: 1px solid #eee; }
 .section:last-of-type { border-bottom: none; }
-.section h2 { font-size: 2.5em; margin-bottom: 50px; position: relative; display: inline-block; }
+#featured { background-color: #f8f9fa; } /* 기획 섹션 배경색 다르게 설정 */
+.section h2 { font-size: 2.5em; text-align: center; margin-bottom: 50px; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
 .section h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #F47A1F; margin: 10px auto 0; }
 
-.card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+/* 카드 디자인 (Highlight, 상반기 이슈, 그룹 스토리 공통) */
+.card-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+}
 .card {
     background-color: #fff;
     border: 1px solid #eee;
@@ -100,8 +103,49 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .card h3 { font-size: 1.5em; color: #222; margin: 0 0 15px 0; line-height: 1.4; }
 .card p { font-size: 1em; color: #555; margin-bottom: 20px; flex-grow: 1; }
 .card a { text-decoration: none; color: inherit; }
-.card a[href]:not(.card-content a) { display: block; }
-.card .card-content a { color: #F47A1F; font-weight: bold; margin-top: auto; }
+.card a.read-more { color: #F47A1F; font-weight: bold; margin-top: auto; }
+
+
+/* --- 기획 섹션 (차별화된 디자인) --- */
+.featured-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.featured-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    text-align: left;
+}
+.featured-item:nth-child(even) {
+    flex-direction: row-reverse; /* 짝수 번째 아이템은 순서 뒤집기 */
+}
+.featured-image {
+    flex: 0 0 45%;
+}
+.featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.featured-content {
+    flex: 1;
+}
+.featured-content h3 {
+    font-size: 1.8em;
+    margin: 0 0 15px 0;
+}
+.featured-content p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+}
 
 
 /* --- 상세 페이지 스타일 --- */
@@ -139,7 +183,6 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .hamburger-menu { display: none; background: none; border: none; cursor: pointer; padding: 0; z-index: 1001; }
 .hamburger-menu span { display: block; width: 25px; height: 3px; background-color: #333; margin: 5px 0; transition: all 0.3s ease-in-out; }
 
-/* 768px 이하 화면(모바일)에 적용될 스타일 */
 @media (max-width: 768px) {
     body { padding-top: 70px; }
     .container { padding: 0 15px; }
@@ -151,17 +194,23 @@ footer p { margin: 5px 0; font-size: 0.9em; }
     .hamburger-menu { display: block; }
     #main-visual { height: 60vh; background-size: cover; }
     #main-visual .slogan { font-size: 1.6em; }
-
-    /* ▼▼▼ 모바일용 스타일도 수정되었습니다. ▼▼▼ */
     #main-visual .large-subtext {
-        font-size: 1.1em; /* 모바일에서는 더 작은 크기로 보이도록 설정 */
+        font-size: 1.1em;
         padding: 0 10px;
     }
-    /* ▲▲▲ 여기까지 수정되었습니다. ▲▲▲ */
 
     .section h2 { font-size: 2em; margin-bottom: 40px; }
     .card { width: 100%; }
-    .image-grid { grid-template-columns: 1fr; }
+    
+    /* 기획 섹션 모바일 반응형 */
+    .featured-item, .featured-item:nth-child(even) {
+        flex-direction: column; /* 무조건 수직으로 쌓기 */
+        padding: 25px;
+        gap: 25px;
+    }
+    .featured-content h3 { font-size: 1.5em; }
+
+    /* 상세 페이지 모바일 반응형 */
     .article-main { padding-top: 30px; padding-bottom: 30px; }
     .article-container { padding: 25px 20px; margin: 0; }
     .article-title-box h1 { font-size: 1.8em; }
