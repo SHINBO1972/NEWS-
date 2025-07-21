@@ -18,6 +18,7 @@ header .logo img { height: 40px; }
 header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
 header nav ul li { margin-left: 30px; }
 header nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
+.hamburger-menu { display: none; }
 footer { background-color: #333; color: #fff; padding: 40px 0; text-align: center; }
 footer p { margin: 5px 0; font-size: 0.9em; }
 /* --- 메인 페이지 스타일 --- */
