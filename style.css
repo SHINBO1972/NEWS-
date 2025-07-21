@@ -7,25 +7,44 @@ body {
     color: #333;
     line-height: 1.6;
     background-color: #f8f9fa;
-    padding-top: 70px; /* 헤더 높이만큼 공간 확보 */
+    padding-top: 70px;
 }
-html { scroll-behavior: smooth; } /* 부드러운 스크롤의 기본을 html에 지정 */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.text-orange { color: #F47A1F; }
-
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.text-orange {
+    color: #F47A1F;
+}
 /* --- 공통 헤더/푸터 --- */
-header { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 header .container { display: flex; justify-content: space-between; align-items: center; }
 header .logo img { height: 40px; }
 header nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
 header nav ul li { margin-left: 30px; }
 header nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
-.hamburger-menu { display: none; } /* 데스크탑에서는 햄버거 숨김 */
-
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+footer p { margin: 5px 0; font-size: 0.9em; }
 /* --- 메인 페이지 스타일 --- */
 #main-visual { height: 85vh; background: url('main-visual.jpg') no-repeat center center/cover; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 8px; color: #fff; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-#main-visual .slogan { font-size: 3.2em; font-weight: bold; margin: 0; }
-#main-visual p { margin: 0; }
+#main-visual .slogan { font-size: 3.2em; font-weight: bold; }
+#main-visual .slogan, #main-visual p { margin: 0; }
 .section { padding: 80px 0; text-align: center; background-color: #fff; border-bottom: 1px solid #eee; }
 .section:last-of-type { border-bottom: none; }
 .section h2 { font-size: 2.5em; margin-bottom: 50px; position: relative; display: inline-block; }
@@ -40,28 +59,21 @@ header nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
 .card a { text-decoration: none; color: inherit; }
 .card a[href]:not(.card-content a) { display: block; }
 .card .card-content a { color: #F47A1F; font-weight: bold; margin-top: auto; }
-
-/* --- 반응형 디자인 (모바일) --- */
+/* --- 상세 페이지 스타일 등 기존에 있던 다른 모든 스타일들 --- */
+/* (사용자께서 가지고 계신 원래 스타일이 있다면 이 아래에 모두 있어야 합니다) */
+/* --- 반응형 디자인 --- */
 @media (max-width: 768px) {
+    body { padding-top: 70px; }
     .container { padding: 0 15px; }
     header nav { display: none; position: fixed; top: 70px; left: 0; width: 100%; height: calc(100% - 70px); background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(4px); }
     header nav.is-active { display: flex; align-items: center; justify-content: center; }
     header nav ul { flex-direction: column; align-items: center; padding: 0; margin: 0; }
     header nav ul li { margin: 25px 0; }
     header nav ul li a { font-size: 1.6em; font-weight: bold; }
-    .hamburger-menu { display: block; width: 30px; height: 22px; background: transparent; border: none; cursor: pointer; padding: 0; position: relative; }
-    .hamburger-menu span { display: block; width: 100%; height: 3px; background-color: #333; border-radius: 3px; position: absolute; left: 0; }
-    .hamburger-menu span:nth-child(1) { top: 0; }
-    .hamburger-menu span:nth-child(2) { top: 9px; }
-    .hamburger-menu span:nth-child(3) { bottom: 0; }
+    .hamburger-menu { display: block; }
     #main-visual { height: 60vh; background-size: cover; }
     #main-visual .slogan { font-size: 1.6em; }
     .section h2 { font-size: 2em; margin-bottom: 40px; }
     .card { width: 100%; }
+    .image-grid { grid-template-columns: 1fr; }
 }
-
-/* 푸터는 반응형 특별히 필요 없어보여서 그대로 둡니다. */
-footer { background-color: #333; color: #fff; padding: 40px 0; text-align: center; }
-footer p { margin: 5px 0; font-size: 0.9em; }
-
-/* 상세페이지 관련 CSS는 일단 생략합니다. 현재 문제와 관련 없습니다. */
