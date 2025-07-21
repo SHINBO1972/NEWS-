@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
+/* ▼▼▼ 이 부분을 그대로 복사해서 추가하세요 ▼▼▼ */
 
+// --- 햄버거 메뉴 클릭 기능 ---
+const hamburgerButton = document.getElementById('hamburger-button');
+const mainNav = document.getElementById('main-nav');
+
+if (hamburgerButton && mainNav) {
+    hamburgerButton.addEventListener('click', function() {
+        mainNav.classList.toggle('is-active');
+    });
+}
+
+/* ▲▲▲ 여기까지 추가 ▲▲▲ */
+    
     // --- 햄버거 메뉴 기능 ---
     const hamburgerButton = document.getElementById('hamburger-button');
     const mainNav = document.getElementById('main-nav');
