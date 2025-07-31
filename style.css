@@ -57,7 +57,7 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .article-content h3 { font-size: 1.5em; font-weight: 700; color: #333; margin-top: 0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #333; }
 /* --- 필자의 글 도입부 및 info-box 스타일 --- */
 .intro-serif-font { font-family: 'Noto Serif KR', serif; margin: 0 0 25px 0; text-align: left; }
-.intro-serif-font p { font-size: 1em; line-height: 2.0; color: #343a40; font-weight: 400; margin: 0; padding: 0; }
+.intro-serif-font p { font-size: 1.1em; line-height: 2.0; color: #343a40; font-weight: 400; margin: 0; padding: 0; }
 .info-box { background-color: #f1f3f5; padding: 20px; margin: 20px 0; border-radius: 5px; }
 .info-box p { margin: 0; }
 .info-box p:last-child { margin-bottom: 0; }
