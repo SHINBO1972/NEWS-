@@ -34,15 +34,15 @@
         }
         /* 질문-답변 세트 간의 간격 조정을 위한 클래스 */
         .interview-qna-block {
-            margin-bottom: 80px;
+            margin-bottom: 80px; /* 각 Q&A 세트의 하단 여백을 넓게 설정 */
         }
         
         /* ▼▼▼ 수정된 브라켓 스타일 ▼▼▼ */
         .bracket-title-wrapper {
             position: relative;
-            padding: 25px 40px; /* 텍스트에 맞게 패딩 조정 */
-            margin: 40px auto;  /* 본문과 어우러지도록 마진 조정 */
-            max-width: 90%;   /* 너비를 유연하게 설정 */
+            padding: 25px 40px;
+            margin: 40px auto;
+            max-width: 90%;
             text-align: center;
         }
         .bracket-title-wrapper::before {
@@ -65,14 +65,19 @@
             border-bottom: 4px solid #555;
             border-right: 4px solid #555;
         }
-        /* p 태그 폰트 스타일 (본문과 동일하게) */
         .bracket-title-wrapper p {
-            font-size: 1.1em;   /* .article-content p와 동일 */
-            font-weight: 400; /* 일반 굵기 */
-            line-height: 1.9; /* .article-content와 동일 */
-            color: #212529;   /* .article-content와 동일 */
+            font-size: 1.1em;
+            font-weight: 400;
+            line-height: 1.9;
+            color: #212529;
             margin: 0;
         }
+        
+        /* ▼▼▼ .text-orange 스타일 강제 적용 ▼▼▼ */
+        .text-orange {
+            color: #F47A1F !important; /* !important를 사용하여 다른 스타일보다 우선 적용 */
+        }
+
     </style>
 </head>
 <body>
@@ -153,6 +158,11 @@
                     <div class="highlight-box">
                         <p>예를 들어, 새로운 형태의 복합 공사 수주를 검토한다고 가정해 봅시다. 과거에는 각 부서가 순차적으로 검토했다면, 이제는 <strong>기획 단계부터 기획팀, 인사팀, 법무팀, 재경팀 등이 함께 모여 프로젝트를 입체적으로 분석하고 동시에 최적의 전략을 도출</strong>하게 됩니다. 이렇게 부서 간 칸막이를 허물고 전사적 역량을 집중할 때, 우리는 훨씬 더 빠르고 정확하게 리스크를 관리하고 수익성을 확보할 수 있습니다. 이것이 제가 기대하는 통합의 시너지입니다.</p>
                     </div>
+                </div>
+
+                <!-- ▼▼▼ 브라켓 스타일 요약 박스 (요청하신 부분) ▼▼▼ -->
+                <div class="bracket-title-wrapper" style="margin-top:0;">
+                    <h2>경영기획부문의 두 가지 약속:<br>현재 사업의 안정, 그리고 미래 성장동력의 확보</h2>
                 </div>
 
                 <h3>■ 핵심 추진 과제: '100년 신보'를 향한 변화의 엔진</h3>
