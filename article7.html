@@ -32,6 +32,47 @@
             color: #F47A1F; /* 브랜드 오렌지 컬러 */
             margin-right: 10px;
         }
+
+         .bracket-title-wrapper {
+            position: relative; /* 양쪽 괄호 위치의 기준점 */
+            padding: 30px 60px; /* 텍스트와 괄호 사이의 여백 */
+            margin: 80px auto;  /* 페이지 중앙 정렬 및 위아래 여백 */
+            max-width: 500px;   /* 전체 컨테이너의 최대 너비 */
+            text-align: center;
+        }
+
+        /* 왼쪽 위 괄호 (┌) 스타일 */
+        .bracket-title-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35px;  /* 괄호의 가로 길이 */
+            height: 35px; /* 괄호의 세로 길이 */
+            border-top: 5px solid #555;  /* 윗쪽 선 */
+            border-left: 5px solid #555; /* 왼쪽 선 */
+        }
+
+        /* 오른쪽 아래 괄호 (┘) 스타일 */
+        .bracket-title-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            border-bottom: 5px solid #555; /* 아랫쪽 선 */
+            border-right: 5px solid #555;  /* 오른쪽 선 */
+        }
+
+        .bracket-title-wrapper h2 {
+            font-size: 1.9em; /* 글자 크기 */
+            font-weight: 500;   /* 글자 굵기 */
+            color: #333;
+            line-height: 1.6;
+            margin: 0; /* h2 태그의 기본 여백 제거 */
+        }
+        
     </style>
 </head>
 <body>
