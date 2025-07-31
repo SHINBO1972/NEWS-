@@ -63,7 +63,7 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .info-box p:last-child { margin-bottom: 0; }
 /* 기타 상세 페이지 스타일 */
 .highlight-box { background-color: #fdf2e2; border: 1px solid #fbe8d1; border-radius: 12px; padding: 20px 30px; margin: 40px 0; }
-.highlight-box p { margin: 10px 0; font-size: 1.1em; color: #333; }
+.highlight-box p { margin: 10px 0; font-size: 1em; color: #333; }
 .highlight-text { font-weight: bold; color: #333; border-bottom: 2px solid #F47A1F; padding-bottom: 2px; }
 .guideline-box { background-color: #fff; border-left: 4px solid #F47A1F; padding: 20px; margin: 20px 0; }
 .info-box ul, .guideline-box ul, .final-choice ul { padding-left: 20px; margin: 15px 0 0 0; list-style-position: outside; }
