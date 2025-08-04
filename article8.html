@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>핵심 주제 - 신보그룹 웹진</title>
+    <!-- 구글 웹폰트 링크 (기존 CSS에 포함되어 있을 수 있으나, 명시적으로 추가) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- ▼▼▼ 제공해주신 기존 CSS 파일 링크 ▼▼▼ -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ▼▼▼ 카드 레이아웃을 위한 추가 CSS 스타일 ▼▼▼ -->
+    <style>
+        /* 페이지 제목과 카드 컨테이너 사이의 간격 */
+        .article-title-box + .card-grid-container {
+            margin-top: 50px;
+        }
+
+        /* 3개의 카드를 감싸는 그리드 컨테이너 */
+        .card-grid-container {
+            display: grid;
+            /* 1fr은 동일한 비율을 의미, 3개의 카드를 같은 너비로 배치 */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px; /* 카드 사이의 간격 */
+        }
+
+        /* 개별 카드 스타일 (기존 .card 스타일을 기반으로 재구성) */
+        .topic-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 마우스를 올렸을 때 카드에 생기는 효과 */
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        /* 카드 상단 이미지 */
+        .topic-card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover; /* 이미지 비율을 유지하면서 카드에 꽉 차게 */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        /* 카드 텍스트 콘텐츠 영역 */
+        .topic-card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* 이 속성으로 인해 내용 길이에 상관없이 카드 높이가 동일하게 유지됨 */
+        }
+
+        .topic-card-content h3 {
+            font-size: 1.5em;
+            color: #222;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+            /* h3 스타일이 상세페이지와 다르게 밑줄이 없어야 하므로 초기화 */
+            border-bottom: none; 
+            padding-bottom: 0;
+        }
+
+        .topic-card-content p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1; /* 이 부분이 버튼을 항상 하단에 위치시키는 핵심 역할 */
+        }
+
+        /* 카드 '자세히 보기' 버튼 */
+        .topic-card-button {
+            display: inline-block;
+            align-self: flex-start; /* 버튼이 왼쪽 하단에 고정 */
+            background-color: #F47A1F;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .topic-card-button:hover {
+            background-color: #d86a1b; /* 기존 색상보다 약간 어둡게 */
+        }
+
+        /* --- 반응형 웹 디자인 --- */
+        /* 태블릿 사이즈 (1024px 이하) */
+        @media (max-width: 1024px) {
+            .card-grid-container {
+                /* 2열로 변경 */
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 모바일 사이즈 (768px 이하) */
+        @media (max-width: 768px) {
+            .card-grid-container {
+                /* 1열로 변경 (세로로 쌓임) */
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+     <!-- ▲▲▲ 추가 CSS 스타일 끝 ▲▲▲ -->
+</head>
+<body>
+
+    <!-- ▼▼▼ 헤더 시작 (기존과 동일) ▼▼▼ -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="신보그룹 로고"></a>
+            </div>
+            <button class="hamburger-menu" id="hamburger-button" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html#highlight">Highlight</a></li>
+                    <li><a href="index.html#issue">상반기 이슈</a></li>
+                    <li><a href="index.html#group-story">그룹 스토리</a></li>
+                    <li><a href="index.html#featured">기획</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ▲▲▲ 헤더 끝 ▲▲▲ -->
+
+    <main class="article-main">
+        <!-- .article-container는 상세페이지의 폭(800px)을 가지므로 더 넓은 .container를 사용합니다. -->
+        <div class="container">
+            <!-- 페이지 제목 -->
+            <div class="article-title-box">
+                <h1>새로운 신보, 세 가지 핵심 이야기</h1>
+                <h2>신보그룹의 미래를 만들어갈 핵심적인 변화들을 소개합니다.</h2>
+            </div>
+
+            <!-- ▼▼▼ 3개의 카드 섹션 컨테이너 시작 ▼▼▼ -->
+            <div class="card-grid-container">
+
+                <!-- 카드 1: 조직문화 -->
+                <article class="topic-card">
+                    <img src="images/placeholder_1.jpg" alt="조직문화 관련 이미지" class="topic-card-image">
+                    <div class="topic-card-content">
+                        <h3>우리가 선택할 '소통 문화'</h3>
+                        <p>성장하는 조직에 필요한 새로운 소통의 기준은 무엇일까요? 과거의 강점을 살리면서 현재의 문제를 해결하는 신보의 소통법을 알아봅니다.</p>
+                        <a href="article-culture.html" class="topic-card-button">자세히 보기</a>
+                    </div>
+                </article>
+
+                <!-- 카드 2: 성과관리 -->
+                <article class="topic-card">
+                    <img src="images/placeholder_2.jpg" alt="성과관리 관련 이미지" class="topic-card-image">
+                    <div class="topic-card-content">
+                        <h3>성장과 동기부여를 위한 '성과관리'</h3>
+                        <p>새롭게 도입되는 성과관리 제도는 어떻게 우리의 성장을 지원할까요? 투명하고 공정한 평가 시스템의 목적과 방향성을 소개합니다.</p>
+                        <a href="article-performance.html" class="topic-card-button">자세히 보기</a>
+                    </div>
+                </article>
+
+                <!-- 카드 3: 일하는 방식 -->
+                <article class="topic-card">
+                    <img src="images/placeholder_3.jpg" alt="일하는 방식 관련 이미지" class="topic-card-image">
+                    <div class="topic-card-content">
+                        <h3>데이터 기반의 '일하는 방식'</h3>
+                        <p>경험을 넘어 데이터에 기반한 의사결정이 어떻게 우리의 업무 효율성을 높이고, 잠재된 리스크를 선제적으로 관리하는지 살펴봅니다.</p>
+                        <a href="article-workstyle.html" class="topic-card-button">자세히 보기</a>
+                    </div>
+                </article>
+
+            </div>
+            <!-- ▲▲▲ 3개의 카드 섹션 컨테이너 끝 ▲▲▲ -->
+        </div>
+    </main>
+
+    <!-- ▼▼▼ 푸터 시작 (기존과 동일) ▼▼▼ -->
+    <footer>
+        <div class="container">
+            <p>신보그룹의 사람, 현장, 문화 이야기를 전합니다.</p>
+            <p>발행처 : 신보그룹 인사팀 ㅣ 문의 : jhlee@shinbonet.com</p>
+            <p>© 2024 Shinbo Group. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- ▲▲▲ 푸터 끝 ▲▲▲ -->
+    
+    <!-- 기존 스크립트가 있다면 여기에 추가 -->
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
