@@ -104,15 +104,23 @@
 <body>
 
     <!-- 헤더 -->
-    <header>
-        <div class="container">
-            <div class="logo"><a href="index.html"><img src="logo.png" alt="신보그룹 로고"></a></div>
-            <button class="hamburger-menu" id="hamburger-button" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
-            <nav id="main-nav">
-                <ul><li><a href="#">Highlight</a></li><li><a href="#">상반기 이슈</a></li><li><a href="#">그룹 스토리</a></li><li><a href="#">기획</a></li></ul>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div class="logo">
+        <a href="index.html"><img src="LOGO.png" alt="신보로고"></a>
+    </div>
+    <nav>
+        <ul>
+            <!-- 각 메뉴를 클릭하면 메인페이지(index.html)의 해당 섹션으로 이동하도록 주소를 수정 -->
+            <li><a href="index.html#profile">회사소개</a></li>
+            <li><a href="index.html#vision">비전</a></li>
+            <li><a href="index.html#history">연혁</a></li>
+            <li><a href="index.html#news">NEWS</a></li>
+        </ul>
+    </nav>
+    <div class="language-selector">
+        <a href="#">KOR</a> | <a href="#">ENG</a>
+    </div>
+</header>
 
     <main class="article-main">
         <div class="container">
