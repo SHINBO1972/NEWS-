@@ -48,8 +48,14 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .article-content { font-size: 1.1em; line-height: 1.9; color: #212529; text-align: left; }
 .article-content p { margin: 0 0 25px 0; }
 .article-content strong { color: #000; font-weight: 600; }
-.article-content img { max-width: 100%; height: auto; display: block; margin: 20px auto; border-radius: 8px; }
-.article-image { margin: 40px auto; }
+.article-content img.article-image { /* 클래스가 article-image인 img에만 적용 */
+    width: 100%;
+    height: 350px; /* 모든 이미지 높이를 350px로 강제 통일 */
+    object-fit: cover; /* 이미지 비율을 유지한 채로 영역을 꽉 채움 (중요) */
+    display: block;
+    margin: 40px auto;
+    border-radius: 8px;
+}
 .back-to-list-button { display: inline-block; text-align: center; background-color: #F47A1F; color: white !important; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; }
 /* 상세 페이지 본문 제목 스타일 */
 .article-content h2 { font-size: 1.8em; margin-top: 0; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #333; }
@@ -123,3 +129,4 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     .intro-serif-font p { font-size: 1.1em; }
     .info-box, .highlight-box, .final-choice { padding: 20px; margin: 30px 0; }
 }
+
