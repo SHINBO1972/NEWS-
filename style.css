@@ -130,5 +130,30 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     .info-box, .highlight-box, .final-choice { padding: 20px; margin: 30px 0; }
 }
 
+/* --- 웹진 소개글 스타일 --- */
+#intro {
+    background-color: #f8f9fa; /* 다른 섹션과 구분되도록 약간 다른 배경색 적용 */
+}
+
+.intro-text {
+    max-width: 800px; /* 너무 길지 않게 최대 너비 설정 */
+    margin: 0 auto;   /* 중앙 정렬 */
+    font-size: 1.15em; /* 기본 글자 크기보다 살짝 크게 */
+    line-height: 2.0;  /* 줄 간격을 넓혀서 가독성 확보 */
+    color: #495057;   /* 너무 진하지 않은 부드러운 글자색 */
+}
+
+.intro-text p {
+    margin-bottom: 2em; /* 문단 사이 간격 */
+}
+
+.intro-text p:last-child {
+    margin-bottom: 0; /* 마지막 문단 아래 간격 제거 */
+}
+
+.intro-last-line {
+    font-weight: 500;  /* 마지막 문장 약간 굵게 */
+    color: #343a40;   /* 마지막 문장 조금 더 진하게 */
+}
 
 
