@@ -177,25 +177,30 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     height: auto;
   }
 }
-/* --- Figure 와 Figcaption 스타일 재정의 --- */
+/* --- Figure 및 모바일 이미지 최종 수정 --- */
 
-/* 1. Figure 태그가 이미지의 위아래 여백을 대신 담당하도록 설정 */
+/* 1. Figure 태그 스타일 정의 (PC + 모바일 공통) */
 .article-content figure {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px 0; /* Figure가 위아래 여백을 담당 */
 }
-
-/* 2. Figure 안의 이미지 자체의 위아래 여백은 제거 (간격 문제 해결) */
-.article-content figure img.article-image {
-  margin-top: 0;
+.article-content figure img {
+  margin-top: 0; /* Figure 내부 이미지 여백 초기화 */
   margin-bottom: 0;
 }
-
-/* 3. Figure 안의 캡션 스타일 지정 */
 .article-content figure figcaption {
   text-align: center;
-  margin-top: 10px; /* 이미지와 캡션 사이의 최종 간격 */
+  margin-top: 10px;
   color: #555;
   font-size: 0.9em;
   line-height: 1.4;
+}
+
+/* 2. 모바일 화면(768px 이하)에서 모든 이미지 잘림 방지 */
+@media (max-width: 768px) {
+  /* PC에서 고정 높이를 가졌던 모든 이미지(.article-image 포함)의
+    높이를 자동으로 조절하여 이미지 비율을 유지합니다.
+  */
+  .article-content img {
+    height: auto;
+  }
 }
