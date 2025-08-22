@@ -177,3 +177,25 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     height: auto;
   }
 }
+/* --- Figure 와 Figcaption 스타일 재정의 --- */
+
+/* 1. Figure 태그가 이미지의 위아래 여백을 대신 담당하도록 설정 */
+.article-content figure {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* 2. Figure 안의 이미지 자체의 위아래 여백은 제거 (간격 문제 해결) */
+.article-content figure img.article-image {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 3. Figure 안의 캡션 스타일 지정 */
+.article-content figure figcaption {
+  text-align: center;
+  margin-top: 10px; /* 이미지와 캡션 사이의 최종 간격 */
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
