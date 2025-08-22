@@ -27,7 +27,15 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 #main-visual .slogan, #main-visual p { margin: 0; }
 .section { padding: 80px 0; text-align: center; background-color: #fff; border-bottom: 1px solid #eee; }
 .section:last-of-type { border-bottom: none; }
-.section h2 { font-size: 2.5em; margin-bottom: 50px; position: relative; display: inline-block; }
+
+/* ▼▼▼ 여기를 수정했습니다! ▼▼▼ */
+.section h2 { 
+    font-size: 2.5em; 
+    margin-bottom: 0; /* 50px에서 0으로 수정 */
+    position: relative; 
+    display: inline-block; 
+}
+
 .section h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #F47A1F; margin: 10px auto 0; }
 .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
 .card { background-color: #fff; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: left; display: flex; flex-direction: column; width: calc(50% - 20px); transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -48,18 +56,16 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .article-content { font-size: 1.1em; line-height: 1.9; color: #212529; text-align: left; }
 .article-content p { margin: 0 0 25px 0; }
 .article-content strong { color: #000; font-weight: 600; }
-.article-content img.article-image { /* 클래스가 article-image인 img에만 적용 */
+.article-content img.article-image {
     width: 100%;
-    height: 550px; /* 모든 이미지 높이를 350px로 강제 통일 */
-    object-fit: cover; /* 이미지 비율을 유지한 채로 영역을 꽉 채움 (중요) */
+    height: 550px;
+    object-fit: cover;
     display: block;
     margin: 40px auto;
     border-radius: 8px;
 }
 .back-to-list-button { display: inline-block; text-align: center; background-color: #F47A1F; color: white !important; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; }
-/* 상세 페이지 본문 제목 스타일 */
 .article-content h2 { font-size: 1.8em; margin-top: 0; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #333; }
-/* ▼▼▼ FIX: h3 밑줄 스타일을 h2와 동일하게 수정 ▼▼▼ */
 .article-content h3 { font-size: 1.5em; font-weight: 700; color: #333; margin-top: 0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #333; }
 /* --- 필자의 글 도입부 및 info-box 스타일 --- */
 .intro-serif-font { font-family: 'Noto Serif KR', serif; margin: 0 0 25px 0; text-align: left; }
@@ -87,8 +93,7 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     header nav ul { flex-direction: column; align-items: center; padding: 0; margin: 0; }
     header nav ul li { margin: 25px 0; }
     header nav ul li a { font-size: 1.6em; font-weight: bold; }
-       /* ▼▼▼ 이 코드를 통째로 붙여넣으세요 ▼▼▼ */
-    header .hamburger-menu { /* 'header'를 추가해서 규칙의 힘을 더 강하게 만듭니다. */
+    header .hamburger-menu {
         display: block;
         width: 30px;
         height: 22px;
@@ -98,7 +103,6 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
         cursor: pointer;
         padding: 0;
     }
-
     header .hamburger-menu span {
         display: block;
         width: 100%;
@@ -108,11 +112,9 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
         position: absolute;
         left: 0;
     }
-
     header .hamburger-menu span:nth-child(1) { top: 0; }
     header .hamburger-menu span:nth-child(2) { top: 9px; }
     header .hamburger-menu span:nth-child(3) { bottom: 0; }
-    /* ▲▲▲ 여기까지 붙여넣기 ▲▲▲ */
     #main-visual { height: 60vh; background-size: cover; }
     #main-visual .slogan { font-size: 1.6em; }
     .section h2 { font-size: 2em; margin-bottom: 40px; }
@@ -128,38 +130,35 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     .intro-serif-font { margin-bottom: 20px; }
     .intro-serif-font p { font-size: 1.1em; }
     .info-box, .highlight-box, .final-choice { padding: 20px; margin: 30px 0; }
-.article-content img {
+    .article-content img {
     height: auto;
+    }
 }
-    
-}
-
 /* --- 웹진 소개글 스타일 --- */
 #intro {
-    background-color: #f8f9fa; /* 다른 섹션과 구분되도록 약간 다른 배경색 적용 */
+    background-color: #f8f9fa;
 }
-
 .intro-text {
-    max-width: 800px; /* 너무 길지 않게 최대 너비 설정 */
-    margin: 0 auto;   /* 중앙 정렬 */
-    font-size: 1.15em; /* 기본 글자 크기보다 살짝 크게 */
-    line-height: 2.0;  /* 줄 간격을 넓혀서 가독성 확보 */
-    color: #495057;   /* 너무 진하지 않은 부드러운 글자색 */
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.15em;
+    line-height: 2.0;
+    color: #495057;
 }
-
 .intro-text p {
-    margin-bottom: 2em; /* 문단 사이 간격 */
+    margin-bottom: 2em;
 }
-
 .intro-text p:last-child {
-    margin-bottom: 0; /* 마지막 문단 아래 간격 제거 */
+    margin-bottom: 0;
 }
-
 .intro-last-line {
-    font-weight: 500;  /* 마지막 문장 약간 굵게 */
-    color: #343a40;   /* 마지막 문장 조금 더 진하게 */
+    font-weight: 500;
+    color: #343a40;
 }
 
-
-
-
+/* ▼▼▼ 여기에 새 코드를 추가했습니다! ▼▼▼ */
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #555;
+}
