@@ -27,16 +27,18 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 #main-visual .slogan, #main-visual p { margin: 0; }
 .section { padding: 80px 0; text-align: center; background-color: #fff; border-bottom: 1px solid #eee; }
 .section:last-of-type { border-bottom: none; }
-
-/* ▼▼▼ 여기를 수정했습니다! ▼▼▼ */
 .section h2 { 
     font-size: 2.5em; 
-    margin-bottom: 0; /* 50px에서 0으로 수정 */
+    margin-bottom: 0;
     position: relative; 
     display: inline-block; 
 }
-
 .section h2::after { content: ''; display: block; width: 60px; height: 3px; background-color: #F47A1F; margin: 10px auto 0; }
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #555;
+}
 .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
 .card { background-color: #fff; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: left; display: flex; flex-direction: column; width: calc(50% - 20px); transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
@@ -67,13 +69,11 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .back-to-list-button { display: inline-block; text-align: center; background-color: #F47A1F; color: white !important; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; }
 .article-content h2 { font-size: 1.8em; margin-top: 0; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #333; }
 .article-content h3 { font-size: 1.5em; font-weight: 700; color: #333; margin-top: 0; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #333; }
-/* --- 필자의 글 도입부 및 info-box 스타일 --- */
 .intro-serif-font { font-family: 'Noto Serif KR', serif; margin: 0 0 25px 0; text-align: left; }
 .intro-serif-font p { font-size: 1.1em; line-height: 2.0; color: #343a40; font-weight: 400; margin: 0; padding: 0; }
 .info-box { background-color: #f1f3f5; padding: 20px; margin: 20px 0; border-radius: 5px; }
 .info-box p { margin: 0; }
 .info-box p:last-child { margin-bottom: 0; }
-/* 기타 상세 페이지 스타일 */
 .highlight-box { background-color: #fdf2e2; border: 1px solid #fbe8d1; border-radius: 12px; padding: 20px 30px; margin: 40px 0; }
 .highlight-box p { margin: 10px 0; font-size: 1em; color: #333; }
 .highlight-text { font-weight: bold; color: #333; border-bottom: 2px solid #F47A1F; padding-bottom: 2px; }
@@ -84,6 +84,23 @@ footer p { margin: 5px 0; font-size: 0.9em; }
 .dilemma-section { margin-top: 60px; padding-top: 40px;}
 .final-choice { background-color: #e9f5ff; border: 1px solid #bde0fe; border-radius: 8px; padding: 25px 30px; margin: 40px 0; }
 blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0; font-style: italic; font-size: 1em; color: #555; background-color: #f8f9fa; }
+
+/* --- Figure 및 캡션 스타일 (최종 수정) --- */
+.article-content figure {
+  margin: 40px 0; /* Figure가 위아래 여백을 담당 */
+}
+.article-content figure img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.article-content figure figcaption {
+  text-align: center;
+  margin-top: 5px; /* 이미지와 캡션 사이 간격 (이 값을 조절하세요) */
+  color: #555;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
 /* --- 반응형 디자인 --- */
 @media (max-width: 768px) {
     body { padding-top: 70px; }
@@ -130,8 +147,10 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     .intro-serif-font { margin-bottom: 20px; }
     .intro-serif-font p { font-size: 1.1em; }
     .info-box, .highlight-box, .final-choice { padding: 20px; margin: 30px 0; }
+
+    /* --- [최종 수정] 모바일 모든 이미지 잘림 방지 --- */
     .article-content img {
-    height: auto;
+        height: auto !important;
     }
 }
 /* --- 웹진 소개글 스타일 --- */
@@ -154,53 +173,4 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
 .intro-last-line {
     font-weight: 500;
     color: #343a40;
-}
-
-/* ▼▼▼ 여기에 새 코드를 추가했습니다! ▼▼▼ */
-.section-subtitle {
-    text-align: center;
-    margin-bottom: 50px;
-    color: #555;
-}
-
-/* --- Figure 태그 모바일 이미지 잘림 문제 최종 해결 --- */
-
-/* 1. Figure 태그의 불필요한 좌우 여백 제거 */
-.article-content figure {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-/* 2. 모바일에서 모든 기사 이미지 높이 자동 조절 */
-@media (max-width: 768px) {
-  .article-content img {
-    height: auto;
-  }
-}
-/* --- Figure 및 모바일 이미지 최종 수정 --- */
-
-/* 1. Figure 태그 스타일 정의 (PC + 모바일 공통) */
-.article-content figure {
-  margin: 40px 0; /* Figure가 위아래 여백을 담당 */
-}
-.article-content figure img {
-  margin-top: 0; /* Figure 내부 이미지 여백 초기화 */
-  margin-bottom: 0;
-}
-.article-content figure figcaption {
-  text-align: center;
-  margin-top: 10px;
-  color: #555;
-  font-size: 0.9em;
-  line-height: 1.4;
-}
-
-/* 2. 모바일 화면(768px 이하)에서 모든 이미지 잘림 방지 */
-@media (max-width: 768px) {
-  /* PC에서 고정 높이를 가졌던 모든 이미지(.article-image 포함)의
-    높이를 자동으로 조절하여 이미지 비율을 유지합니다.
-  */
-  .article-content img {
-    height: auto;
-  }
 }
