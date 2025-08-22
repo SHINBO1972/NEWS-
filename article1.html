@@ -4,17 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기획: 우리가 선택해야 하는 ‘소통’ - 신보그룹 웹진</title>
-    <!-- 구글 웹폰트 링크 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
-    <!-- 최종 수정된 CSS 파일 링크 -->
     <link rel="stylesheet" href="style.css?v=2024_complete_final">
+    <style>
+        /* 페이지 제목과 소개 카드 사이의 간격 */
+        .article-title-box + .intro-text-block {
+            margin-top: 40px;
+        }
+        
+        /* ▼▼▼ 1x1 소개 카드 스타일 (새로 추가) ▼▼▼ */
+        .intro-text-block {
+            background-color: #fff; /* 흰색 */
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px 40px;
+            margin-bottom: 50px; /* 아래 수상자 카드들과의 간격 확보 */
+            text-align: center;
+        }
+        .intro-text-block p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        .intro-text-block p:last-child {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: #212529;
+        }
+        /* ▲▲▲ 1x1 소개 카드 스타일 끝 ▲▲▲ */
+
+        /* 5개의 카드를 감싸는 그리드 컨테이너 */
+        .card-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        /* 개별 카드 스타일 */
+        .topic-card {
+            background-color: #fff; border: 1px solid #eee; border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: left; display: flex;
+            flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .topic-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.12); }
+        .topic-card-image { width: 100%; height: 220px; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+        .topic-card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+        .topic-card-content h3 { font-size: 1.5em; color: #222; margin: 0 0 15px 0; line-height: 1.4; border-bottom: none; padding-bottom: 0; }
+        .topic-card-content h4 { font-size: 1em; color: #555; margin: -10px 0 10px 0; font-weight: normal; }
+        .topic-card-content p { font-size: 1.2em; color: #333; font-weight: bold; margin-bottom: 20px; flex-grow: 1; }
+        .open-modal-btn {
+            cursor: pointer; display: inline-block; align-self: flex-start; background-color: #F47A1F;
+            color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;
+            font-weight: bold; transition: background-color 0.2s ease; border: none; margin-top: auto;
+        }
+        .open-modal-btn:hover { background-color: #d86a1b; }
+
+        /* --- 팝업(모달) 스타일 --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); display: none; justify-content: center;
+            align-items: center; z-index: 2000; padding: 20px; box-sizing: border-box;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background-color: #fff; padding: 40px; border-radius: 8px; max-width: 800px;
+            width: 100%; max-height: 90vh; overflow-y: auto; position: relative;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2); box-sizing: border-box;
+        }
+        .modal-content h2 { font-size: 2em; margin-top: 0; margin-bottom: 25px; color: #333; }
+        .modal-content p { font-size: 1.1em; line-height: 1.8; margin-bottom: 20px; }
+        .modal-content img { max-width: 100%; height: auto; display: block; margin: 30px auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .close-modal-btn {
+            position: absolute; top: 15px; right: 15px; font-size: 28px;
+            font-weight: bold; color: #888; background: none; border: none;
+            cursor: pointer; line-height: 1;
+        }
+        .close-modal-btn:hover { color: #333; }
+        
+        /* ▼▼▼ [수정됨] 이미지 그리드 문제 해결 코드 추가 ▼▼▼ */
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* ▲▲▲ [수정됨] 여기까지 ▲▲▲ */
+
+        /* --- 반응형 웹 디자인 --- */
+        @media (max-width: 1024px) {
+            .card-grid-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .card-grid-container { grid-template-columns: 1fr; }
+            .intro-text-block { padding: 25px 20px; }
+            .modal-content { padding: 30px 20px; }
+            .modal-content h2 { font-size: 1.5em; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ▼▼▼ 헤더 시작 ▼▼▼ -->
-  <header>
+    <header>
     <div class="container">
         <div class="logo">
             <a href="index.html"><img src="logo.png" alt="신보그룹 로고"></a>
@@ -36,8 +128,6 @@
         </nav>
     </div>
 </header>
-    <!-- ▲▲▲ 헤더 끝 ▲▲▲ -->
-
     <main class="article-main">
         <div class="article-container">
             <div class="article-title-box">
@@ -46,19 +136,17 @@
             </div>
 
             <div class="article-content">
-                <!-- 필자의 글 도입부 -->
                 <div class="intro-serif-font">
                     <p>문화는 한 집단의 정체성이자 나아갈 방향을 지탱하는 보이지 않는 힘입니다. 어떤 일을 우선으로 생각하고, 어떻게 문제를 해결하며, 서로를 어떻게 대하는지와 같은 '우리다움' 그 자체이기 때문입니다.</p><p>그러나 이렇게 중요한 문화도 조직의 성장이나 시대의 흐름과 같은 환경에 따라 끊임없이 변해야만 그 생명력을 유지할 수 있습니다.</p>
                 </div>
                 <div class="info-box">
                     <p>이번 코너에서는  변화와 재정비 시점에 서 있는 신보그룹이 앞으로 어떤 조직문화의 방향을 선택해야 하는지, 그리고 더 나아가 그 안에서 ‘내가 실천할 수 있는 문화는 무엇’이 있을지 함께 살펴보겠습니다.</p>
                 </div>
-<br></br>
-                <!-- ▼▼▼ 본문 시작 ▼▼▼ -->
+<br><br>
                 <h3>신보그룹의 조직문화, <span class="text-orange">‘변화’</span> 앞에 서다</h3>
                 <img src="hilight_card1.png" alt="소통 기획 이미지" class="article-image">
                 <p>우리가 이야기할 '신보의 문화'란 무엇일까요? 지난 50년간 회사를 성장시키고, 위기의 순간마다 우리를 단단하게 묶어준 보이지 않는 힘이었습니다.</p>
-                     <p>구체적으로 우리의 문화는 다음과 같은 역할을 해왔습니다.</p>
+                       <p>구체적으로 우리의 문화는 다음과 같은 역할을 해왔습니다.</p>
                 <div class="info-box">
                     <p><strong>→ 우리의  <span class="text-orange">조직문화는</span></strong></p>
                     <ul>
@@ -68,7 +156,7 @@
                         <li>기업에게는 지속가능한 성장의 원동력이며 <strong>경쟁력</strong>이 되고 있습니다.</li>
                     </ul>
                 </div>
-                <img src="9.png" alt="신보 조직문화의 기준 이미지">
+                <img src="9.png" alt="신보 조직문화의 기준 이미지" class="article-image">
                 <div class="info-box">
                     <p><strong>→ 하지만, 우리의 조직문화는 <span class="text-orange">이제 변해야 합니다.</span></strong></p>
                     <p>문화는 환경의 변화와 구성원들의 세대 교체, 조직의 전략과 목표의 변화 등의 여러 요인으로 인해 자연스럽게 변하게 됩니다.</p>
@@ -78,12 +166,12 @@
                     <p>그렇다면, 신보의 조직문화는 <strong><span class="text-orange">어떤 변화를 선택</strong></span>해야 할까요?</p>
                     <p>답은 <strong><span class="text-orange">'소통'</strong></span>에서 찾을 수 있습니다.</p>
                 </div>
-                <br></br>
+                <br><br>
                 <h3>'소통', 신보 <span class="text-orange">조직문화의 기준</span></h3>
-            
+                
                     <p>신보의 조직문화는 구성원이 <strong>어떻게 일하고, 어떻게 판단하며, 어떻게 협업</strong>할 것인지에 대한 기준을 제시하고 있습니다. 이 기준은 <strong>‘일하는 방식’에서 출발</strong>하며, 기준의 중심에는 ‘<span class="highlight-text">소통</span>’이 있습니다</p>
-              
-                <br></br>
+                
+                <br><br>
                 <h3><span class="text-orange">'업'의 특성에 기반</span>한 소통</h3>
                 <p>신보의 업의 특성을 보면 ‘소통’이 중심에 있는 것을 확인할 수 있습니다.</p>
                 <div class="image-grid">
@@ -95,12 +183,12 @@
                 <p>이러한 업무 환경에선 ‘누가, 왜 무엇을 하는지’ 모르고는 <strong>판단도, 협업도 불가능</strong>합니다. </p>
                 <p>또한, 신보는 신뢰 기반 자율 경영을 추구하기 때문에, <span class="highlight-text"><strong>정직한 소통</span></strong>에 기반한 경영이 요구됩니다.</p>
                 <p>그래서 우리에게 ‘소통’은 선택이 아니라, <span class="text-orange">일의 전제</span>가 됩니다.</p>
-             <div class="highlight-box">    
-                 <p><strong>신보그룹의 '소통'은 우리의 '일하는 방식'</strong>을 말하며,</p>
-                 <strong><p><span class="text-orange">'우리다움의 소통'이 잘 된다는 것은,<span class="highlight-text">'일 잘하는 소통'</span></strong>이 되고 있다는 것</span>을 의미합니다.</p>
+               <div class="highlight-box">    
+                    <p><strong>신보그룹의 '소통'은 우리의 '일하는 방식'</strong>을 말하며,</p>
+                    <strong><p><span class="text-orange">'우리다움의 소통'이 잘 된다는 것은,<span class="highlight-text">'일 잘하는 소통'</span></strong>이 되고 있다는 것</span>을 의미합니다.</p>
 
-                 <p>이런 행동은 시간이 쌓이면서 <strong><p><span class="text-orange">'신보그룹의 문화'를 만들고, 그 문화가 기업의 지속가능한 성장의 '경쟁력'</span></strong></p>이 됩니다.</p>
-            </div>      
+                    <p>이런 행동은 시간이 쌓이면서 <strong><p><span class="text-orange">'신보그룹의 문화'를 만들고, 그 문화가 기업의 지속가능한 성장의 '경쟁력'</span></strong></p>이 됩니다.</p>
+                </div>    
                 <br><br>
                 <h3>빠른 성장 속  <span class="text-orange">변화에 대응하지 못한 ‘소통’</span></h3>
                 <div class="info-box">
@@ -111,21 +199,21 @@
                         <li>개인적, 집단적 유대 중심</li>
                     </ul>
                 </div>
-                <img src="5.png" alt="빠른 성장 이미지">
+                <img src="5.png" alt="빠른 성장 이미지" class="article-image">
                 <p>이러한 소통의 특징은 다음과 같은 이점이 있었습니다.</p>
                 <p>5~6명 정도의 소규모 조직에서는 '소통'의 속도가 빨랐고, 상호 이해도가 높았습니다.</p>
 
                                 <p>또한, 각자 맡은 업무의 영역이 다양해서 업에 대한 이해도가 높았습니다.
-                                   '업에 대한 강한 이해'는 업무적 소통에 있어  <strong>'신속한 일처리', '빠른 의사결정'</strong>의 이점을 보였습니다.</p>
+                                    '업에 대한 강한 이해'는 업무적 소통에 있어  <strong>'신속한 일처리', '빠른 의사결정'</strong>의 이점을 보였습니다.</p>
    <p>경력이 오래될 수록, 직원간의 유대관계가 깊을 수록 보여지는 모습입니다.</p>
                 <div class="highlight-box">
                     
                 <p>하지만 지금, 우리는 <strong><span class="text-orange">새로운 환경</span></strong>에 서 있습니다.</p>
                 </div>
-                <br></br>
+                <br><br>
                 <h3><span class="text-orange">조직의 규모와 복잡성은 과거와 달라졌습니다.</span></h3>
-                <p>이제는 <span class="text-orange"><strong>그 소통의 강점을 이어가면서, 변화에 맞는 방식으로 발전시켜야 할 시점</strong></span>입니다.</p>     
-                <img src="10.png" alt="새로운 환경 이미지">
+                <p>이제는 <span class="text-orange"><strong>그 소통의 강점을 이어가면서, 변화에 맞는 방식으로 발전시켜야 할 시점</strong></span>입니다.</p>    
+                <img src="10.png" alt="새로운 환경 이미지" class="article-image">
                 <div class="info-box">
                     <p><strong>→기업의 성장과 함께 찾아온 새로운 환경</strong></p>
                     <ul>
@@ -138,17 +226,17 @@
                 <p>'소통'또한 체계적 의사결정 시스템에 따르게 되면서, 보고 체계의 복잡함으로 <strong>'보고 기피'</strong>의 문제를 야기할 수 있습니다.</p>
                 <p>보고의 기피는 <span class="text-orange"><strong>소통의 누락</strong></span>으로 이어집니다.</p>
                 
-  <div class="highlight-box">    
-      <p>어떤 문화를 선택하든 이것을 현실화, 행동화 하는데에는 <strong>'딜레마'</strong>가 나타나기 마련입니다.</p>
-  </div>
+ <div class="highlight-box">    
+     <p>어떤 문화를 선택하든 이것을 현실화, 행동화 하는데에는 <strong>'딜레마'</strong>가 나타나기 마련입니다.</p>
+ </div>
                 
-                <br></br>
+                <br><br>
                 <h3>우리가 마주한 <span class="text-orange">'소통의 현실'</span></h3>
                 <p>’소통’이 조직의 성장에 중요한 점은 분명합니다.</p>
                 <p>하지만 현실의 딜레마를 해결하지 못한 채 반복되는 소통은, 결국 <strong>이상론</strong>에 그치고 맙니다.</p>
-                <img src="8.png" alt="새로운 환경 이미지">
-                 <p>그렇다면 우리가 현장에서 흔히 부딪히는 소통의 딜레마는 어떤 모습일까요? 실제 사례를 통해 살펴보겠습니다.</p>
-                <br></br>
+                <img src="8.png" alt="딜레마 이미지" class="article-image">
+               <p>그렇다면 우리가 현장에서 흔히 부딪히는 소통의 딜레마는 어떤 모습일까요? 실제 사례를 통해 살펴보겠습니다.</p>
+                <br><br>
                 <h3> <span class="text-orange">현실의 딜레마1</span></h3>
                 <h4>“강한 유대감 구두 소통” vs. “공식 절차 소통”</h4> 
                 <p><strong>상황</strong></p>
@@ -180,7 +268,7 @@
                         <li>모두가 이해하는 통일된 소통 프로세스를 준수하며, 현장과 본사가 신뢰를 바탕으로 협력해야 합니다.</li>
                     </ul>
                 </div>
-                <br></br>             
+                <br><br>                 
                 <h3> <span class="text-orange">현실의 딜레마2</span></h3>
                 <h4>정보 공유: "비공식 소통" vs. "공식 채널"</h4>   
                 <p><strong>상황</strong></p>
@@ -201,7 +289,7 @@
                         <li>업무 관련 핵심 정보는 공식 문서나 이메일로 <strong>반드시 공유</strong>해 정보 격차를 최소화합니다.</li>
                     </ul>
                 </div>
-                <br></br>
+                <br><br>
                 <div class="dilemma-section">
                     <h3>딜레마에 대한 <span class="text-orange">신보의 기준</span></h3>
                     <p>신보의 ‘소통’은 우리가 현장에서 마주하는 딜레마에 대해, 문화적 기준에 따라 선택의 방향을 명확히 제시하고 있습니다.</p>
@@ -212,7 +300,7 @@
                         <p><span class="text-success">✔️ <strong>장점:</strong></span> 처리 시간이 다소 지연될 수 있더라도, 체계적인 데이터 축적, 책임 소재 명확화, 절차적 투명성을 확보하는 것이 업의 특성에 궁극적으로 부합합니다.</p>
                         <p><span class="text-danger">❌ <strong>피해야 할 행동:</strong></span> 과거의 ‘빠르고 편한’ 비공식 소통에만 의존하는 것은 공식 기록 누락, 책임 회피, 부서 간 조율 부족 등 더 큰 조직의 비효율을 초래할 수 있습니다.</p>
                     </div>
-                    <br></br>
+                    <br><br>
                     <div class="info-box"><h4>신보의 기준 2: ‘정직한 소통’을 통한 신뢰 기반 경영</h4></div>
                     <div class="guideline-box">  
                         <p>소통의 딜레마는 절차에만 있는 것이 아닙니다. <strong>개인적인 관계와 조직의 성과가 충돌</strong>할 때, 우리는 <span class="text-orange"><strong>'정직하고 당당한 소통'이라는 기준을 따라야 합니다.</strong></span></p>
@@ -224,13 +312,13 @@
                 <div class="highlight-box">
                     <p><strong>신보가 말하는 소통의 문화가 조직 안에서 분명히 드러나지 않는 이유는, <span class="text-orange">'과거의 익숙한 방식'과 '새로운 기준' 사이에서 머뭇거리고 있기 때문입니다.</span></strong></p>
                 </div>
-                <br></br>
+                <br><br>
                 <h3>이제는 '선택'해야 할 때</h3>
                 <p>과거의 소통 방식은 잘못된 것이 아니었습니다.</p>
                 <p>하지만 지금은 달라졌습니다. 조직은 커졌고, 책임도 커졌습니다. 과거의 강점을 이어가되, 지금의 환경에 맞게 기준과 방식을 새롭게 해야 합니다.</p>
                 <div class="final-choice">
                     <p><strong>이제는 그때의 강점을 살리되, 지금의 기준에 맞게 <span class="text-orange">업그레이드된 방식</span>이 필요합니다.</strong></p>
-                      <p>새로운 방식이란 과거의 좋은 점을 버리는 것이 아닌, 그 위에 현재의 원칙을 더해 함께 발전시키는 것을 의미합니다.</p>
+                        <p>새로운 방식이란 과거의 좋은 점을 버리는 것이 아닌, 그 위에 현재의 원칙을 더해 함께 발전시키는 것을 의미합니다.</p>
                     <p><strong>우리가 택해야 할 건:</strong></p>
                     <ul>
                         <li>과거의 강점을 살리는 유연함</li>
@@ -239,14 +327,13 @@
                         <li>자율과 신뢰를 유지하기 위한 공정한 피드백</li>
                     </ul>
                 </div>
-                <br></br>
+                <br><br>
                 <div class="dilemma-section">
                     <h3>조직이 성장하면 <span class="text-orange">문화도 달라져야 합니다</span></h3>
                     <p>무엇보다, 경영진의 솔선수범이 필요하고, 구성원 모두의 일상 속 실천이 필요합니다.</p>
                     <blockquote>“힘을 동반하지 않는 문화는 내일이라도 당장 사멸할 수 있다.”<br>– 윈스턴 처칠</blockquote>
                 </div>
-                <!-- ▲▲▲ 본문 끝 ▲▲▲ -->
-            </div>
+                </div>
             
             <div style="text-align: center; margin-top: 60px;">
                 <a href="index.html" class="back-to-list-button">목록으로 돌아가기</a>
@@ -254,7 +341,6 @@
         </div>
     </main>
 
-    <!-- ▼▼▼ 푸터 시작 ▼▼▼ -->
     <footer>
         <div class="container">
             <p>신보그룹의 사람, 현장, 문화 이야기를 전합니다.</p>
@@ -262,7 +348,21 @@
             <p>© 2024 Shinbo Group. All rights reserved.</p>
         </div>
     </footer>
-    <!-- ▲▲▲ 푸터 끝 ▲▲▲ -->
     <script src="script.js"></script>
 </body>
 </html>
+
+우리가 마주한 소통의 현실 h3 이전에
+이런 흐름으로 가면 좋겠어
+
+빠르게 성장했던 신보는 과거엔 유기적이고 빠른 소통이 큰 강점이었습니다.
+하지만 지금, 우리는 새로운 환경에 서 있습니다.
+조직의 규모와 복잡성은 과거와 달라졌습니다.
+이제는 그 소통의 강점을 이어가면서, 변화에 맞는 방식으로 발전시켜야 할 시점입니다.
+
+그렇다면, 현재 우리가 마주한 소통의 어려움은 어떤 모습일까요?
+문화는 한순간에 바뀌지 않기에, 우리는 여전히 과거의 익숙함과 새로운 기준 사이의 과도기에 있습니다. 
+그리고 그 과도기 속에서 우리는 여러 ‘딜레마’와 마주하게 됩니다.
+실제 현장에서 흔히 부딪히는 소통의 딜레마 사례를 통해, 우리가 풀어야 할 과제를 함께 살펴보겠습니다.
+
+이런흐름이 좋아, 전체 수정본 줘
