@@ -128,9 +128,9 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     .intro-serif-font { margin-bottom: 20px; }
     .intro-serif-font p { font-size: 1.1em; }
     .info-box, .highlight-box, .final-choice { padding: 20px; margin: 30px 0; }
-.article-content img.article-image {
-        height: auto;
-    }
+.article-content img {
+    height: auto;
+}
     
 }
 
@@ -159,6 +159,7 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     font-weight: 500;  /* 마지막 문장 약간 굵게 */
     color: #343a40;   /* 마지막 문장 조금 더 진하게 */
 }
+
 
 
 
