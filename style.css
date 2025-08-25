@@ -175,3 +175,43 @@ blockquote { border-left: 4px solid #F47A1F; padding: 10px 20px; margin: 30px 0;
     color: #343a40;
 }
 
+/* ============================================= */
+/* 디자인 인용문 스타일                */
+/* ============================================= */
+
+.stylish-quote {
+  position: relative; /* 큰 따옴표 위치의 기준점 */
+  max-width: 700px; /* 가독성을 위한 최대 너비 */
+  margin: 50px auto; /* 위아래 여백 및 좌우 중앙 정렬 */
+  padding: 2em 3em; /* 텍스트와 박스 테두리 사이의 여백 */
+  
+  background-color: #f9f9f9; /* 은은한 배경색 */
+  border-left: 5px solid #F47A1F; /* 왼쪽 강조선 (기존 테마 색상 활용) */
+  font-style: normal; /* 브라우저 기본 기울임꼴 제거 */
+}
+
+/* 인용문 안의 문단(<p>) 스타일 */
+.stylish-quote p {
+  margin: 0; /* 불필요한 여백 제거 */
+  font-size: 1.1em; /* 기본 텍스트보다 살짝 크게 */
+  line-height: 1.8; /* 줄 간격 */
+  color: #333; /* 텍스트 색상 */
+}
+
+/* 여는 따옴표 (디자인 핵심) */
+.stylish-quote::before {
+  content: '“'; /* 화면에 따옴표 표시 */
+  position: absolute; /* 자유롭게 위치시키기 */
+  
+  /* --- 따옴표 위치 --- */
+  top: 0.1em;
+  left: 0.1em;
+  
+  /* --- 따옴표 디자인 --- */
+  font-size: 6em; /* 따옴표 크기 */
+  font-family: Georgia, serif; /* 따옴표에 어울리는 폰트 */
+  color: rgba(0, 0, 0, 0.08); /* 텍스트를 방해하지 않는 연한 색 */
+  
+  line-height: 1; /* 불필요한 줄 간격 제거 */
+  z-index: 1; /* 텍스트보다 앞에 배치 (필요시 z-index: -1; 로 뒤에 배치 가능) */
+}
